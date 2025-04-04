@@ -70,12 +70,12 @@ export default function Footer() {
           >
             <h3 className="text-xl font-heading font-semibold mb-4 border-b border-primary-gold pb-2">Services</h3>
             <ul className="space-y-2">
-              <li className="text-gray-300">Executive Leadership Coaching</li>
-              <li className="text-gray-300">Organizational Development</li>
-              <li className="text-gray-300">Strategic Planning</li>
-              <li className="text-gray-300">Team Development</li>
-              <li className="text-gray-300">Project Management</li>
-              <li className="text-gray-300">Capacity Building</li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Executive Leadership Coaching</a></li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Organizational Development</a></li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Strategic Planning</a></li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Team Development</a></li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Project Management</a></li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Capacity Building</a></li>
             </ul>
           </motion.div>
 
