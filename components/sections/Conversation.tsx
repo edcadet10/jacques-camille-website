@@ -50,12 +50,13 @@ export default function Conversation() {
     return () => clearTimeout(scrollTimer);
   }, [messages]);
 
-  // Focus input when component mounts or becomes visible
+  // Focus input when component mounts or becomes visible (disabled on initial load)
   useEffect(() => {
-    if (inView) {
+    // Only focus if user has interacted with the page first
+    if (inView && messages.length > 1) {
       inputRef.current?.focus();
     }
-  }, [inView]);
+  }, [inView, messages.length]);
 
   // Set up scroll event listener for user interaction detection
   useEffect(() => {

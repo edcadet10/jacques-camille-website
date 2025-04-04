@@ -14,7 +14,8 @@ import NewsletterSection from '@components/sections/Newsletter/NewsletterSection
 export default function Home() {
   // Initialize GSAP or other animations on page load
   useEffect(() => {
-    // Any global animations or initializations can go here
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
   }, []);
 
   return (
