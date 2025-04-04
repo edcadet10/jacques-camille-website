@@ -1,0 +1,5 @@
+# robots.txt for Jacques Evens Camille's website
+User-agent: *
+Allow: /
+
+Sitemap: https://jacquesecamille.com/sitemap.xml

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Background circle with gold border -->
+  <circle cx="50" cy="50" r="48" fill="#f5f5f5" stroke="#c4a35a" stroke-width="4" />
+  
+  <!-- Stylized professional silhouette -->
+  <circle cx="50" cy="35" r="18" fill="#1e5f74" opacity="0.9" />
+  
+  <!-- Shoulders/suit -->
+  <path d="M25,85 C25,62 75,62 75,85" fill="#1e5f74" opacity="0.9" />
+  
+  <!-- Tie element -->
+  <path d="M47,53 L50,75 L53,53 L50,48 Z" fill="#c4a35a" opacity="0.9" />
+  
+  <!-- Collar details -->
+  <path d="M38,53 L47,53 L50,48 L53,53 L62,53" stroke="#f5f5f5" stroke-width="1.5" fill="none" />
+  
+  <!-- Initials: JEC - subtle, professional touch -->
+  <text x="50" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1e5f74">JEC</text>
+</svg>

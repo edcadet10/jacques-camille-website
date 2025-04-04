@@ -1,0 +1,92 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (configure to match your repository setup)
+
+# Publish mode, editorial workflow lets you save drafts
+publish_mode: editorial_workflow
+
+# Media (images, etc) handling
+media_folder: "public/images/uploads" # Media will be stored here
+public_folder: "/images/uploads" # The public URL path to the folder
+
+# Collections define the structure of the content
+collections:
+  - name: "newsletter"
+    label: "Newsletter"
+    folder: "content/newsletter"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Newsletter Content", name: "body", widget: "markdown" }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Leadership", value: "leadership" }
+          - { label: "Organizational Development", value: "organizational-development" }
+          - { label: "Personal Growth", value: "personal-growth" }
+          - { label: "Team Building", value: "team-building" }
+          - { label: "Career Development", value: "career-development" }
+  
+  - name: "resources"
+    label: "Resources"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Resource Type", name: "type", widget: "select", options: ["article", "video", "guide"] }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Resource Content", name: "body", widget: "markdown" }
+      - { label: "External Link", name: "link", widget: "string", required: false, hint: "Optional link to external resource" }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Leadership", value: "leadership" }
+          - { label: "Organizational Development", value: "organizational-development" }
+          - { label: "Personal Growth", value: "personal-growth" }
+          - { label: "Team Building", value: "team-building" }
+          - { label: "Career Development", value: "career-development" }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Blog Content", name: "body", widget: "markdown" }
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options:
+          - { label: "Leadership", value: "leadership" }
+          - { label: "Organizational Development", value: "organizational-development" }
+          - { label: "Personal Growth", value: "personal-growth" }
+          - { label: "Team Building", value: "team-building" }
+          - { label: "Career Development", value: "career-development" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Position", name: "position", widget: "string" }
+      - { label: "Company/Organization", name: "company", widget: "string" }
+      - { label: "Testimonial Text", name: "testimonial", widget: "text" }
+      - { label: "Profile Image", name: "image", widget: "image", required: false }

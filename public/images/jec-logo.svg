@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Logo circle background -->
+  <circle cx="50" cy="50" r="48" fill="#1e5f74" stroke="#c4a35a" stroke-width="4" />
+  
+  <!-- JEC text -->
+  <text 
+    x="50" 
+    y="55" 
+    font-family="Montserrat, sans-serif" 
+    font-size="26" 
+    font-weight="700" 
+    fill="#ffffff" 
+    text-anchor="middle" 
+    dominant-baseline="middle"
+  >
+    JEC
+  </text>
+  
+  <!-- Decorative underscore -->
+  <path 
+    d="M35,64 L65,64" 
+    stroke="#c4a35a" 
+    stroke-width="3" 
+    stroke-linecap="round"
+  />
+</svg>
