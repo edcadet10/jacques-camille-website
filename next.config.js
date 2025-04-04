@@ -17,6 +17,19 @@ const nextConfig = {
     };
     return config;
   },
+  // Ensure admin route is properly handled
+  async rewrites() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+      },
+      {
+        source: '/admin/:path*',
+        destination: '/admin/:path*',
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig
