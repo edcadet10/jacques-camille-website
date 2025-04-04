@@ -1,7 +1,7 @@
 ---
 title: Leadership in Times of Change
 date: 2025-04-04T10:00:00.000Z
-thumbnail: /images/uploads/jec.png
+thumbnail: /images/uploads/dall·e-2025-02-27-21.38.00-a-modern-and-bold-logo-for-a-web-app-named-inprojek-.-the-logo-should-have-a-professional-and-tech-forward-design-using-deep-blue-1a5f7a-as-the-p.webp
 summary: Effective leadership strategies for navigating organizational change
   and transformation in today's dynamic business environment.
 tags:
