@@ -1,9 +1,10 @@
 ---
-title: "Leadership in Times of Change"
-date: 2025-04-04T10:00:00Z
-thumbnail: "/images/uploads/leadership-change.jpg"
-summary: "Effective leadership strategies for navigating organizational change and transformation in today's dynamic business environment."
-tags: 
+title: Leadership in Times of Change
+date: 2025-04-04T10:00:00.000Z
+thumbnail: /images/uploads/jec.png
+summary: Effective leadership strategies for navigating organizational change
+  and transformation in today's dynamic business environment.
+tags:
   - leadership
   - organizational-development
 ---
