@@ -11,47 +11,17 @@
     <!-- Include the script that builds the page and powers Decap CMS (formerly Netlify CMS) -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      // Explicitly set the config path
-      window.CMS.init({
-        config: {
-          backend: {
-            name: 'git-gateway',
-            branch: 'master' // Use your actual branch name (master or main)
-          },
-          media_folder: 'public/images/uploads',
-          public_folder: '/images/uploads',
-          collections: [
-            {
-              name: 'newsletter',
-              label: 'Newsletter',
-              folder: 'content/newsletter',
-              create: true,
-              slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
-              fields: [
-                { label: 'Title', name: 'title', widget: 'string' },
-                { label: 'Publish Date', name: 'date', widget: 'datetime' },
-                { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: false },
-                { label: 'Summary', name: 'summary', widget: 'text' },
-                { label: 'Newsletter Content', name: 'body', widget: 'markdown' },
-                { 
-                  label: 'Tags',
-                  name: 'tags',
-                  widget: 'select',
-                  multiple: true,
-                  options: [
-                    { label: 'Leadership', value: 'leadership' },
-                    { label: 'Organizational Development', value: 'organizational-development' },
-                    { label: 'Personal Growth', value: 'personal-growth' },
-                    { label: 'Team Building', value: 'team-building' },
-                    { label: 'Career Development', value: 'career-development' }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      });
-      
+      // Check if we're running on Netlify
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+
       // Register custom components
       window.CMS.registerEditorComponent({
         id: "youtube",

@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Branch to update (configure to match your repository setup)
+  branch: master # Branch to update (master matches your GitHub repository)
 
 # Publish mode, editorial workflow lets you save drafts
 publish_mode: editorial_workflow

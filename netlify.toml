@@ -8,3 +8,19 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Netlify Identity settings
+[template.environment]
+  NETLIFY_IDENTITY_ENABLED = "true"
+
+# Redirect for Netlify Identity Widget
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+# Add a non-root 404 page for admin paths
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 404
