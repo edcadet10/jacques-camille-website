@@ -1,10 +1,10 @@
-# Netlify CMS Integration Guide for Jacques' Website
+# Decap CMS Integration Guide for Jacques' Website
 
-This guide explains how the Netlify CMS has been integrated with Jacques' website to provide content management capabilities, particularly for the newsletter section.
+This guide explains how Decap CMS (formerly Netlify CMS) has been integrated with Jacques' website to provide content management capabilities, particularly for the newsletter section.
 
 ## Overview
 
-Netlify CMS is a Git-based content management system that allows you to edit content directly through a user-friendly admin interface. The changes are committed to your Git repository, giving you complete control over your content.
+Decap CMS (formerly Netlify CMS) is a Git-based content management system that allows you to edit content directly through a user-friendly admin interface. The changes are committed to your Git repository, giving you complete control over your content.
 
 ## What's Been Implemented
 
@@ -107,6 +107,6 @@ You can customize the CMS further by modifying the `/public/admin/config.yml` fi
 
 ## Need Help?
 
-For more information about Netlify CMS, check out:
-- [Netlify CMS Documentation](https://www.netlifycms.org/docs/intro/)
+For more information about Decap CMS, check out:
+- [Decap CMS Documentation](https://decapcms.org/docs/intro/)
 - [Netlify Identity Documentation](https://docs.netlify.com/visitor-access/identity/)

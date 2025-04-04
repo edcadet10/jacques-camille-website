@@ -8,11 +8,11 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Include the script that builds the page and powers Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- Include the script that builds the page and powers Decap CMS (formerly Netlify CMS) -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
       // Hide the media library button from the editor toolbar to prevent issues
-      CMS.registerEditorComponent({
+      window.CMS.registerEditorComponent({
         id: "youtube",
         label: "YouTube",
         fields: [
