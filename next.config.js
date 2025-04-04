@@ -25,6 +25,10 @@ const nextConfig = {
         destination: '/admin/index.html',
       },
       {
+        source: '/admin/config.yml',
+        destination: '/admin/config.yml',
+      },
+      {
         source: '/admin/:path*',
         destination: '/admin/:path*',
       },
