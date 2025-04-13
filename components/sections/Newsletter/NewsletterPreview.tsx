@@ -20,8 +20,8 @@ export default function NewsletterPreview() {
         <Image
           src={latestNewsletter.thumbnail}
           alt={latestNewsletter.title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           className="z-0"
         />
         <div className="absolute top-0 left-0 bg-primary-blue text-white px-4 py-2 text-sm font-medium z-20">
@@ -42,20 +42,16 @@ export default function NewsletterPreview() {
           {latestNewsletter.summary}
         </p>
         
-        <Link href="/newsletter">
-          <a className="text-primary-blue hover:text-primary-gold transition-colors duration-200 font-medium inline-flex items-center">
+        <Link href="/newsletter" className="text-primary-blue hover:text-primary-gold transition-colors duration-200 font-medium inline-flex items-center">
             Read the Latest Newsletter
             <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
-          </a>
         </Link>
         
         <div className="mt-6 pt-6 border-t border-gray-100">
-          <Link href="/newsletter/archive">
-            <a className="text-gray-500 hover:text-primary-blue transition-colors duration-200">
+          <Link href="/newsletter/archive" className="text-gray-500 hover:text-primary-blue transition-colors duration-200">
               Browse Newsletter Archive →
-            </a>
           </Link>
         </div>
       </div>

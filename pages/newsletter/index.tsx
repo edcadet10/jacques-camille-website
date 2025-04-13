@@ -115,8 +115,8 @@ export default function NewsletterPage({ newsletters }: NewsletterPageProps) {
                       <Image
                         src={newsletter.frontmatter.thumbnail || "/images/placeholder-newsletter.jpg"}
                         alt={newsletter.frontmatter.title}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        style={{ objectFit: 'cover' }}
                       />
                     </div>
                     
@@ -148,13 +148,11 @@ export default function NewsletterPage({ newsletters }: NewsletterPageProps) {
                         ))}
                       </div>
                       
-                      <Link href={`/newsletter/${newsletter.slug}`}>
-                        <a className="text-primary-blue hover:text-primary-gold transition-colors duration-200 font-medium inline-flex items-center">
+                      <Link href={`/newsletter/${newsletter.slug}`} className="text-primary-blue hover:text-primary-gold transition-colors duration-200 font-medium inline-flex items-center">
                           Read More
                           <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                           </svg>
-                        </a>
                       </Link>
                     </div>
                   </motion.div>
@@ -188,10 +186,8 @@ export default function NewsletterPage({ newsletters }: NewsletterPageProps) {
               </div>
               
               <div className="md:w-1/3 w-full">
-                <Link href="/#newsletter">
-                  <a className="block w-full bg-primary-blue text-white text-center py-3 px-6 rounded-md font-medium hover:bg-primary-dark transition-colors duration-200">
+                <Link href="/#newsletter" className="block w-full bg-primary-blue text-white text-center py-3 px-6 rounded-md font-medium hover:bg-primary-dark transition-colors duration-200">
                     Subscribe Now
-                  </a>
                 </Link>
               </div>
             </div>

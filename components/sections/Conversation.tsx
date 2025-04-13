@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import { suggestedTopics, questionsAnswers } from '@utils/conversationData';
 import { getAIResponse } from '@utils/aiService';
+import ClientOnly from '../ClientOnly';
 
 // Message interface
 interface Message {
@@ -11,17 +12,17 @@ interface Message {
   text: string;
   sender: 'user' | 'jacques';
   timestamp: Date;
+  includeContactButton?: boolean;
 }
 
 export default function Conversation() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: "Hello! I'm Jacques Evens Camille, an Executive Leadership Coach and Organizational Development Expert. Feel free to ask me about my background, services, or approach to leadership development. I can also assist with general leadership and organizational questions. How can I assist you today?",
-      sender: 'jacques',
-      timestamp: new Date()
-    }
-  ]);
+  // Initial welcome message
+  const [messages, setMessages] = useState<Message[]>([{
+    id: '1',
+    text: "Hello! I'm Jacques Evens Camille, an Executive Leadership Coach and Organizational Development Expert. Feel free to ask me about my background, services, or approach to leadership development. I can also assist with general leadership and organizational questions. How can I assist you today?",
+    sender: 'jacques',
+    timestamp: new Date()
+  }]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -91,6 +92,11 @@ export default function Conversation() {
   const handleSendMessage = async (text: string = inputValue) => {
     if (!text.trim()) return;
 
+    // Check if this is a positive response to a consultation request
+    const lastMessageIsJacques = messages.length > 0 && messages[messages.length - 1].sender === 'jacques';
+    const isAffirmativeResponse = /^(yes|yeah|sure|absolutely|ok|okay|yep|yup|definitely|please|i would|of course|sounds good|let's do it)$/i.test(text.trim());
+    const containsConsultationInvite = lastMessageIsJacques && messages[messages.length - 1].text.includes("Would you like to book a session");
+    
     // Create and add user message
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -105,6 +111,21 @@ export default function Conversation() {
     
     // Unlock scrolling when a new message is sent
     setScrollLocked(false);
+
+    // Special handling for affirmative responses to consultation invites
+    if (containsConsultationInvite && isAffirmativeResponse) {
+      const bookingResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Great! I'm glad you're interested in a consultation. Please click the button below to contact me, and we can schedule a session that works for you.",
+        sender: 'jacques',
+        timestamp: new Date(),
+        includeContactButton: true // Special flag for contact button
+      };
+      
+      setMessages(prev => [...prev, bookingResponse]);
+      setIsTyping(false);
+      return;
+    }
 
     try {
       // Generate AI response (either predefined or from Gemini API)
@@ -230,11 +251,33 @@ export default function Conversation() {
                   }`}
                 >
                   <p style={{ whiteSpace: 'pre-line' }}>{message.text}</p>
-                  <span className={`text-xs block mt-1 ${
-                    message.sender === 'user' ? 'text-blue-100' : 'text-gray-400'
-                  }`}>
-                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </span>
+                  
+                  {/* Contact button for booking requests */}
+                  {message.includeContactButton && (
+                    <div className="mt-3">
+                      <a
+                        href="#contact"
+                        className="inline-block bg-primary-blue text-white px-4 py-2 rounded-full font-medium hover:bg-primary-dark transition-colors duration-200"
+                        onClick={() => {
+                          // Smooth scroll to contact section
+                          document.getElementById('contact')?.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                          });
+                        }}
+                      >
+                        Contact Me
+                      </a>
+                    </div>
+                  )}
+                  
+                  <ClientOnly>
+                    <span className={`text-xs block mt-1 ${
+                      message.sender === 'user' ? 'text-blue-100' : 'text-gray-400'
+                    }`}>
+                      {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    </span>
+                  </ClientOnly>
                 </motion.div>
               </div>
             ))}

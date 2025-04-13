@@ -49,13 +49,11 @@ export default function NewsletterPage({ newsletter }: NewsletterProps) {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto mb-12"
           >
-            <Link href="/newsletter">
-              <a className="inline-flex items-center text-primary-blue hover:text-primary-gold transition-colors duration-200 mb-6">
+            <Link href="/newsletter" className="inline-flex items-center text-primary-blue hover:text-primary-gold transition-colors duration-200 mb-6">
                 <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
                 Back to Newsletters
-              </a>
             </Link>
             
             <div className="text-sm text-gray-500 mb-2">
@@ -81,8 +79,8 @@ export default function NewsletterPage({ newsletter }: NewsletterProps) {
               <Image
                 src={newsletter.frontmatter.thumbnail || "/images/placeholder-newsletter.jpg"}
                 alt={newsletter.frontmatter.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: 'cover' }}
                 className="z-0"
               />
             </div>
@@ -149,10 +147,8 @@ export default function NewsletterPage({ newsletter }: NewsletterProps) {
                 </div>
                 
                 <div className="md:w-1/2 text-center md:text-right">
-                  <Link href="/#newsletter">
-                    <a className="inline-block bg-primary-blue text-white py-3 px-6 rounded-md font-medium hover:bg-primary-dark transition-colors duration-200">
+                  <Link href="/#newsletter" className="inline-block bg-primary-blue text-white py-3 px-6 rounded-md font-medium hover:bg-primary-dark transition-colors duration-200">
                       Subscribe to the Newsletter
-                    </a>
                   </Link>
                 </div>
               </div>
