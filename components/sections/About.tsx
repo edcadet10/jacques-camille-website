@@ -72,7 +72,7 @@ export default function About() {
           >
             <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-lg relative">
               <Image
-                src="/images/JEC.png"
+                src="/jacques.jpg"
                 alt="Jacques Evens Camille - Professional Portrait"
                 fill
                 className="object-cover object-center"

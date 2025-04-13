@@ -77,7 +77,7 @@ export default function Header({ scrollY, isMenuOpen, toggleMenu }: HeaderProps)
         >
           <div className="relative overflow-hidden rounded-full">
             <Image
-              src="/images/JEC.png"
+              src="/jacques.jpg"
               alt="Jacques Evens Camille"
               width={isScrolled ? 50 : 60}
               height={isScrolled ? 50 : 60}

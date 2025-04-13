@@ -206,7 +206,7 @@ export default function Conversation() {
           <div className="bg-primary-blue p-4 text-white flex items-center">
             <div className="w-10 h-10 rounded-full overflow-hidden bg-white mr-3">
               <Image
-                src="/images/JEC.png"
+                src="/jacques.jpg"
                 alt="Jacques Evens Camille"
                 width={40}
                 height={40}
@@ -232,7 +232,7 @@ export default function Conversation() {
                 {message.sender === 'jacques' && (
                   <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0 mr-2 mt-1">
                     <Image
-                      src="/images/JEC.png"
+                      src="/jacques.jpg"
                       alt="Jacques Evens Camille"
                       width={32}
                       height={32}
@@ -293,7 +293,7 @@ export default function Conversation() {
                 >
                   <div className="h-8 w-8 rounded-full overflow-hidden flex-shrink-0 mr-2 mt-1">
                     <Image
-                      src="/images/JEC.png"
+                      src="/jacques.jpg"
                       alt="Jacques Evens Camille"
                       width={32}
                       height={32}

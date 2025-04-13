@@ -161,7 +161,7 @@ export default function Hero() {
             {/* Professional headshot of Jacques */}
             <div className="aspect-[3/4] rounded-lg shadow-xl overflow-hidden relative">
               <Image
-                src="/images/JEC.png"
+                src="/jacques.jpg"
                 alt="Jacques Evens Camille - Executive Leadership Coach"
                 fill
                 className="object-cover object-center"
