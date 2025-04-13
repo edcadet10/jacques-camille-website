@@ -4,9 +4,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 
 // Components
 import Layout from '@components/layout/Layout';

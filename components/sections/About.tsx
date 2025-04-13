@@ -91,7 +91,7 @@ export default function About() {
               viewport={{ once: true }}
               className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-primary-blue shadow-lg flex flex-col items-center justify-center text-white transform"
             >
-              <span className="text-xl font-bold">10+</span>
+              <span className="text-xl font-bold">15+</span>
               <span className="text-xs">Years Exp.</span>
             </motion.div>
           </motion.div>
@@ -102,19 +102,25 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-heading font-semibold text-primary-dark mb-4">Background & Nationality</h3>
             <p className="text-gray-dark mb-6">
-              A Caribbean native with deep Haitian roots, I bring a rich, multicultural perspective to my work. 
-              I currently reside in Kigali, Rwanda, where my diverse experience across Africa and the Caribbean 
-              informs my global outlook on leadership and organizational development.
+              I am a Caribbean native with deep Haitian roots, offering a rich, multicultural perspective on leadership 
+              and organizational development. Now based in Kigali, Rwanda, I leverage over 15 years of international 
+              experience across Africa and the Caribbean to provide innovative executive coaching and strategic consulting services.
             </p>
             
-            <h3 className="text-2xl font-heading font-semibold text-primary-dark mb-4">Professional Identity</h3>
+            <h3 className="text-2xl font-heading font-semibold text-primary-dark mb-4">Professional Identity & Approach</h3>
             <p className="text-gray-dark mb-6">
-              As an Executive Leadership Coach, Business Consultant, and Organizational Development Expert, 
-              I focus on transforming leaders and organizations through tailored coaching and strategic interventions. 
-              I currently serve as an Executive Leadership Coach & Organizational Development Consultant with 
-              Leadership Management International (LMI) East Africa.
+              As an Executive Leadership Coach, Business Consultant, and Organizational Development Expert, I bring over 15 years 
+              of hands-on experience empowering leaders in both public and private sectors. My approach centers on tailored coaching 
+              and strategic interventions designed to generate measurable improvements in leadership, productivity, and organizational excellence.
+            </p>
+
+            <h3 className="text-2xl font-heading font-semibold text-primary-dark mb-4">Proven Impact</h3>
+            <p className="text-gray-dark mb-6">
+              Throughout my career, I've helped organizations achieve measurable outcomes, such as significantly 
+              improving cash flow, boosting sales performance, and designing transformative training programs 
+              that upskill thousands. My passion lies in empowering leaders and teams to implement changes that 
+              yield improved performance, increased leadership acumen, and tangible business results.
             </p>
             
             <h3 className="text-2xl font-heading font-semibold text-primary-dark mb-4">Education</h3>

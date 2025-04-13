@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import Logo from '@components/ui/Logo';
 
 interface HeaderProps {
   scrollY: number;

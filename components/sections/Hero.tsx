@@ -118,14 +118,14 @@ export default function Hero() {
             variants={itemVariants}
           >
             Empowering Leaders, <br/>
-            <span className="text-primary-blue">Transforming</span> Organizations
+            <span className="text-primary-blue">Transforming Organizations</span>
           </motion.h2>
           
           <motion.p 
             className="text-lg md:text-xl text-gray-dark mb-8 max-w-xl"
             variants={itemVariants}
           >
-            I'm Jacques Evens Camille, an Executive Leadership Coach and Organizational Development Expert with a passion for helping leaders and organizations reach their full potential.
+            I'm Jacques Evens Camille – an Executive Leadership Coach and Organizational Development Expert with over 15 years of experience. My passion is to help leaders unlock their full potential and drive meaningful organizational change.
           </motion.p>
           
           <motion.div 

@@ -90,7 +90,7 @@ export default function Contact() {
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary-gold"></span>
           </h2>
           <p className="text-gray-dark max-w-3xl mx-auto text-lg">
-            Interested in working together? Let's discuss how I can help you or your organization
+            I'm ready to help you transform your leadership or elevate your organization's performance. Whether you're interested in a consultation or have questions about my services, feel free to reach out.
           </p>
         </motion.div>
 

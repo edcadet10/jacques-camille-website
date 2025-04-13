@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import { suggestedTopics, questionsAnswers } from '@utils/conversationData';
+import { questionsAnswers } from '@utils/conversationData';
 import { getAIResponse } from '@utils/aiService';
 import ClientOnly from '../ClientOnly';
 

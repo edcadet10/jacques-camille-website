@@ -4,7 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "18.17.0"
-  NEXT_PUBLIC_GEMINI_API_KEY = "insert_your_api_key_here"
+  # DO NOT set actual API keys here - use Netlify environment variables instead
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -24,3 +24,14 @@
   from = "/admin/*"
   to = "/admin/index.html"
   status = 404
+
+# Add security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://*.googleapis.com;"

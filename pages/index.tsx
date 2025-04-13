@@ -21,7 +21,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Jacques Evens Camille - Leadership & Organizational Development</title>
+        <title>Jacques Evens Camille – Executive Leadership Coach & Organizational Development Consultant</title>
+        <meta name="description" content="Discover Jacques Evens Camille, an internationally recognized Executive Leadership Coach and Organizational Development Expert with over 15 years of experience, based in Kigali, Rwanda. Empower your leadership and transform your organization with proven strategies, executive coaching, and tailored organizational development services." />
+        <meta name="keywords" content="Executive Leadership Coach, Organizational Development Consultant, Leadership Coaching, Strategic Planning, Team Development, Project Management, Capacity Building, Jacques Evens Camille, Kigali Rwanda" />
       </Head>
       <Layout>
         <motion.div

@@ -22,7 +22,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 mb-4">
-              Executive Leadership Coach, Business Consultant, and Organizational Development Expert based in Kigali, Rwanda.
+              Executive Leadership Coach | Organizational Development Expert | Business Consultant | Market Systems Development Specialist based in Kigali, Rwanda.
             </p>
             <div className="flex space-x-4">
               <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary-gold transition-colors duration-200">
@@ -74,7 +74,7 @@ export default function Footer() {
               <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Organizational Development</a></li>
               <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Strategic Planning</a></li>
               <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Team Development</a></li>
-              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Project Management</a></li>
+              <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Management Consulting & Strategy</a></li>
               <li><a href="#services" className="block text-gray-300 hover:text-primary-gold transition-colors duration-200">Capacity Building</a></li>
             </ul>
           </motion.div>

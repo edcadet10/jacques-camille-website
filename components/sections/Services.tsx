@@ -15,8 +15,8 @@ const services: Service[] = [
   {
     id: 'leadership-coaching',
     title: 'Executive Leadership Coaching',
-    shortDescription: 'Personalized coaching for senior leaders to enhance their capabilities and effectiveness.',
-    fullDescription: 'My leadership coaching approach is personalized and focuses on enhancing leadership capabilities, strategic thinking, and personal effectiveness.',
+    shortDescription: 'Personalized coaching to enhance leadership capabilities, personal productivity, and strategic decision-making.',
+    fullDescription: 'Personalized coaching program designed to enhance your leadership capabilities, boost personal productivity, and improve strategic decision-making. Benefit from a tailored approach that addresses your specific challenges and goals to maximize your leadership impact.',
     icon: (
       <svg className="w-8 h-8 text-primary-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -26,8 +26,8 @@ const services: Service[] = [
   {
     id: 'organizational-development',
     title: 'Organizational Development',
-    shortDescription: 'Transforming organizational structures, processes, and culture for improved performance.',
-    fullDescription: 'My organizational development services involve comprehensive interventions to transform organizational structures, processes, and culture.',
+    shortDescription: 'Transform your organization\'s structure, processes, and culture to achieve sustainable growth and a competitive edge.',
+    fullDescription: 'Comprehensive services to transform your organization\'s structure, processes, and culture for sustainable growth and competitive advantage. Our targeted interventions enhance operational efficiency, promote innovation, and foster a culture of continuous improvement.',
     icon: (
       <svg className="w-8 h-8 text-primary-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
@@ -37,8 +37,8 @@ const services: Service[] = [
   {
     id: 'strategic-planning',
     title: 'Strategic Planning',
-    shortDescription: 'Developing and implementing effective strategic plans aligned with vision and goals.',
-    fullDescription: 'My strategic planning services help organizations develop and implement effective plans aligned with their vision and goals.',
+    shortDescription: 'Develop and implement effective strategies that align with your vision and drive performance improvements across your organization.',
+    fullDescription: 'Expert guidance in developing and implementing effective strategies that align with your organizational vision and goals. Our structured approach helps you identify key priorities, allocate resources effectively, and create actionable plans that drive measurable improvements.',
     icon: (
       <svg className="w-8 h-8 text-primary-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
@@ -48,8 +48,8 @@ const services: Service[] = [
   {
     id: 'team-development',
     title: 'Team Development',
-    shortDescription: 'Enhancing team cohesion, communication, and performance through tailored interventions.',
-    fullDescription: 'I offer specialized programs to enhance team cohesion, communication, and performance.',
+    shortDescription: 'Enhance team cohesion and performance with targeted training and innovative team-building initiatives.',
+    fullDescription: 'Comprehensive programs designed to enhance team cohesion, communication, and overall performance. Our targeted training and innovative team-building initiatives help transform diverse groups into high-performing teams aligned with your organizational objectives.',
     icon: (
       <svg className="w-8 h-8 text-primary-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -59,8 +59,8 @@ const services: Service[] = [
   {
     id: 'project-management',
     title: 'Project Management',
-    shortDescription: 'Expert planning, execution, and evaluation of projects across multiple sectors.',
-    fullDescription: 'With my expertise in project management, I provide guidance on planning, execution, and evaluation of projects across various sectors.',
+    shortDescription: 'Expert guidance in planning, executing, and evaluating projects to deliver efficient, measurable outcomes.',
+    fullDescription: 'Comprehensive project management services that guide initiatives from conception to completion. Our methodical approach ensures efficient planning, execution, monitoring, and evaluation of projects to deliver measurable outcomes on time and within budget.',
     icon: (
       <svg className="w-8 h-8 text-primary-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
@@ -70,8 +70,8 @@ const services: Service[] = [
   {
     id: 'capacity-building',
     title: 'Capacity Building',
-    shortDescription: 'Comprehensive training programs to empower individuals and teams with needed skills.',
-    fullDescription: 'I design and deliver comprehensive training programs that empower individuals and teams with the skills needed for success.',
+    shortDescription: 'Empower individuals and teams through comprehensive training programs designed to build long-term competencies.',
+    fullDescription: 'Structured training programs designed to empower individuals and teams by developing essential competencies. Our capacity building initiatives focus on sustainable skill development that enhances both immediate performance and long-term organizational capabilities.',
     icon: (
       <svg className="w-8 h-8 text-primary-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
@@ -103,11 +103,11 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary-dark mb-4 inline-block relative">
-            Services
+            Our Services
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary-gold"></span>
           </h2>
-          <p className="text-gray-dark max-w-3xl mx-auto text-lg">
-            Tailored solutions to empower leaders and transform organizations for optimal performance
+          <p className="text-gray-dark max-w-3xl mx-auto text-lg mb-4">
+            I offer a range of comprehensive and customized solutions to empower leaders and transform organizations. Whether you're an executive seeking personal growth or an organization aiming for strategic excellence, my services are designed to deliver impactful results.
           </p>
         </motion.div>
 
