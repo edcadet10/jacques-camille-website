@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
+    "@netlify/functions": "^2.6.0",
     "autoprefixer": "^10.4.16",
     "decap-cms-app": "^3.1.3",
     "dotenv": "^16.4.7",
@@ -18,6 +20,7 @@
     "gsap": "^3.12.2",
     "marked": "^9.1.6",
     "next": "14.2.25",
+    "next-auth": "^4.24.7",
     "postcss": "^8.4.31",
     "react": "^18",
     "react-dom": "^18",

@@ -1,0 +1,24 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Exclude these files from the git archive
+.gitattributes export-ignore
+.gitignore export-ignore
+.env.local export-ignore
+.env.*.local export-ignore
+.editorconfig export-ignore
+*.log export-ignore
+npm-debug.log* export-ignore
+yarn-debug.log* export-ignore
+yarn-error.log* export-ignore
+pnpm-debug.log* export-ignore
+
+# Treat demo and test files as vendored
+demo.html.bak linguist-vendored
+pages/test-chat.tsx.bak linguist-vendored
+
+# Mark documentation files
+*.md linguist-documentation
+
+# Mark configuration files
+*.config.js linguist-language=JavaScript

@@ -6,8 +6,60 @@
     <title>Jacques Evens Camille - Content Management</title>
     <!-- Include Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+      /* Custom styles for admin interface */
+      .custom-admin-nav {
+        background-color: #0a192f;
+        color: white;
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .custom-admin-nav a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      
+      .custom-admin-nav a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .admin-logo {
+        font-weight: bold;
+        font-size: 18px;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 10px;
+      }
+      
+      /* Only show custom nav when CMS is loaded */
+      .custom-admin-nav {
+        display: none;
+      }
+      
+      body.cms-ready .custom-admin-nav {
+        display: flex;
+      }
+    </style>
   </head>
   <body>
+    <!-- Custom admin navigation -->
+    <div class="custom-admin-nav">
+      <div class="admin-logo">Jacques Evens Camille Admin</div>
+      <div class="nav-links">
+        <a href="/" target="_blank">View Website</a>
+        <a href="/admin/subscribers" target="_blank">Newsletter Subscribers</a>
+        <a href="#" id="logout-button">Logout</a>
+      </div>
+    </div>
+    
     <!-- Include the script that builds the page and powers Decap CMS (formerly Netlify CMS) -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
@@ -18,7 +70,16 @@
             window.netlifyIdentity.on("login", () => {
               document.location.href = "/admin/";
             });
+          } else {
+            // Add a class to body when CMS is ready and user is logged in
+            document.body.classList.add('cms-ready');
           }
+        });
+        
+        // Handle logout button click
+        document.getElementById('logout-button').addEventListener('click', function(e) {
+          e.preventDefault();
+          window.netlifyIdentity.logout();
         });
       }
 
@@ -47,6 +108,14 @@
             <iframe src="https://www.youtube.com/embed/${obj.id}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
           </div>`;
         }
+      });
+
+      // Register custom preview template for subscribers page
+      window.CMS.registerPreviewTemplate('subscribers', () => {
+        return h('div', {}, [
+          h('h1', {}, 'Subscribers Preview'),
+          h('p', {}, 'To view newsletter subscribers, please use the "Newsletter Subscribers" link in the navigation.')
+        ]);
       });
     </script>
   </body>

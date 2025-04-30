@@ -9,6 +9,11 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Functions configuration for serverless functions
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Netlify Identity settings
 [template.environment]
   NETLIFY_IDENTITY_ENABLED = "true"
@@ -17,6 +22,18 @@
 [[redirects]]
   from = "/admin/*"
   to = "/admin/:splat"
+  status = 200
+
+# Specific API redirects
+[[redirects]]
+  from = "/api/newsletter/signup"
+  to = "/.netlify/functions/newsletter-signup"
+  status = 200
+
+# General API redirects
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
   status = 200
 
 # Add a non-root 404 page for admin paths
@@ -34,4 +51,13 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://*.googleapis.com;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://identity.netlify.com https://api.netlify.com;"
+
+# Special headers for admin section
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    # Allow iframe for admin section
+    X-Frame-Options = "SAMEORIGIN"
+    # More permissive CSP for admin
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://identity.netlify.com https://api.netlify.com;"

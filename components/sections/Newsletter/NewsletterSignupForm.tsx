@@ -20,9 +20,20 @@ export default function NewsletterSignupForm() {
     setError('');
     
     try {
-      // In a real implementation, this would call a Netlify function to handle the submission
-      // For now we'll simulate a successful API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Call the Netlify function endpoint
+      const response = await fetch('/api/newsletter/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
       
       // Clear form and show success message
       setEmail('');
@@ -32,7 +43,11 @@ export default function NewsletterSignupForm() {
       // Reset success message after 5 seconds
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
-      setError('Something went wrong. Please try again later.');
+      if (err instanceof Error) {
+        setError(err.message || 'Something went wrong. Please try again later.');
+      } else {
+        setError('Something went wrong. Please try again later.');
+      }
       console.error('Newsletter signup error:', err);
     } finally {
       setLoading(false);
@@ -72,7 +87,7 @@ export default function NewsletterSignupForm() {
       </div>
       
       {error && (
-        <div className="text-red-500 text-sm">
+        <div className="text-red-500 text-sm" role="alert">
           {error}
         </div>
       )}
@@ -82,6 +97,7 @@ export default function NewsletterSignupForm() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="bg-green-100 border border-green-400 text-green-700 px-4 py-2 rounded-md text-sm"
+          role="alert"
         >
           Thank you! You've been successfully subscribed to Jacques' newsletter.
         </motion.div>
@@ -95,10 +111,11 @@ export default function NewsletterSignupForm() {
             ? 'opacity-70 cursor-not-allowed' 
             : 'hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue'
         }`}
+        aria-disabled={loading}
       >
         {loading ? (
           <span className="flex items-center justify-center">
-            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>

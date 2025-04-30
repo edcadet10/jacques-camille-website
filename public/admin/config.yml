@@ -9,6 +9,29 @@ publish_mode: editorial_workflow
 media_folder: "public/images/uploads" # Media will be stored here
 public_folder: "/images/uploads" # The public URL path to the folder
 
+# Add these to customize the admin interface
+site_url: https://jacques-camille.netlify.app
+display_url: https://jacques-camille.netlify.app
+logo_url: https://jacques-camille.netlify.app/images/logo.png
+
+# Custom admin navigation
+admin:
+  custom_html: ./admin/index.html
+  locale: 'en'
+
+# Custom navbar
+navbar:
+  admin_widget: true
+  style: dark
+  logo_url: /images/logo.png
+  background_color: "#0a192f"
+  text_color: "#ffffff"
+  links:
+    - label: "View Website"
+      url: "/"
+    - label: "Subscribers"
+      url: "/admin/subscribers"
+
 # Collections define the structure of the content
 collections:
   - name: "newsletter"
