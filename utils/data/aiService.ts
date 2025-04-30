@@ -1,18 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { questionsAnswers } from './conversationData';
-
-// Initialize the Google Generative AI with the API key from environment variables
-const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || '';
-
-// Check if API key is available
-if (!API_KEY) {
-  console.error('Gemini API key is missing! Please check your environment variables.');
-}
-
-const genAI = new GoogleGenerativeAI(API_KEY);
-
-// Call-to-action text to append to AI-generated responses
-const CONSULTATION_CTA = "I'd be happy to discuss this further in a personalized consultation. Would you like to book a session to explore this topic in more depth?";
 
 // Maximum input length to prevent excessively long prompts
 const MAX_INPUT_LENGTH = 500;
@@ -77,7 +63,7 @@ export const getPredefinedAnswer = (question: string): string => {
 };
 
 /**
- * Generates a response using the Gemini API
+ * Generates a response using the Gemini API through our proxy API
  * @param prompt - The sanitized user prompt
  * @returns The generated response with a CTA
  */
@@ -89,52 +75,32 @@ export const generateGeminiResponse = async (prompt: string): Promise<string> =>
   }
   
   try {
-    // For safety, add a system prompt to guide the AI's responses
-    const fullPrompt = `As a helpful AI assistant responding on Jacques Evens Camille's website, 
-    please provide a knowledgeable and concise response to the following question 
-    that does not relate directly to Jacques Evens Camille. Maintain a professional 
-    and courteous tone consistent with Jacques' brand as an Executive Leadership Coach 
-    and Organizational Development Expert. 
-    
-    Do not provide information that could be harmful, illegal, or unethical.
-    
-    User question: ${sanitizedPrompt}`;
-    
-    // Get the model and start a chat - using the model version that worked in our test
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
-    
-    // Add safety settings
-    const generationConfig = {
-      temperature: 0.7,
-      topK: 40,
-      topP: 0.95,
-      maxOutputTokens: 1000,
-    };
-    
-    // Generate a response with safety settings
-    const result = await model.generateContent({
-      contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
-      generationConfig,
+    // Call our own API endpoint which serves as a proxy to the Gemini API
+    const response = await fetch('/api/gemini/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt: sanitizedPrompt
+      }),
     });
     
-    const response = result.response.text();
-    
-    // Return the response with the CTA or a fallback message if empty
-    return (response ? `${response}\n\n${CONSULTATION_CTA}` : "I apologize, but I couldn't generate a response at this time. Would you like to ask something else or try rephrasing your question?");
-  } catch (error) {
-    console.error('Error generating response from Gemini API:', error);
-    
-    // Try with fallback model if first attempt fails
-    try {
-      const fallbackModel = genAI.getGenerativeModel({ model: 'gemini-1.0-pro' });
-      const result = await fallbackModel.generateContent(sanitizedPrompt);
-      const fallbackResponse = result.response.text();
-      
-      return (fallbackResponse ? `${fallbackResponse}\n\n${CONSULTATION_CTA}` : "I apologize, but I couldn't generate a response at this time. Would you like to ask something else or try rephrasing your question?");
-    } catch (fallbackError) {
-      console.error('Error with fallback model:', fallbackError);
-      return "I'm experiencing technical difficulties at the moment. Please try again later or ask a different question.";
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
     }
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      return data.response;
+    } else {
+      console.error('Error from API:', data.error);
+      return "I apologize, but I couldn't generate a response at this time. Would you like to ask something else or try rephrasing your question?";
+    }
+  } catch (error) {
+    console.error('Error generating response:', error);
+    return "I'm experiencing technical difficulties at the moment. Please try again later or ask a different question.";
   }
 };
 

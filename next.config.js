@@ -5,7 +5,7 @@ const path = require('path');
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
-    value: "default-src 'self'; script-src 'self' https://identity.netlify.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://identity.netlify.com https://api.netlify.com; frame-src 'self'; object-src 'none'; base-uri 'self';"
+    value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://identity.netlify.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://identity.netlify.com https://api.netlify.com https://jacquesevenscamille.netlify.app; frame-src 'self'; object-src 'none'; base-uri 'self';"
   },
   {
     key: 'Strict-Transport-Security',
@@ -37,7 +37,7 @@ const securityHeaders = [
 const adminHeaders = [
   {
     key: 'Content-Security-Policy',
-    value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://identity.netlify.com https://api.netlify.com; frame-src 'self' https://identity.netlify.com; object-src 'none';"
+    value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://i.ytimg.com blob:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://identity.netlify.com https://api.netlify.com https://jacquesevenscamille.netlify.app; frame-src 'self' https://identity.netlify.com; object-src 'none';"
   },
   {
     key: 'X-Frame-Options',
@@ -58,6 +58,26 @@ const adminHeaders = [
   {
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin'
+  }
+];
+
+// API route headers with CORS
+const apiHeaders = [
+  {
+    key: 'Access-Control-Allow-Credentials',
+    value: 'true'
+  },
+  {
+    key: 'Access-Control-Allow-Origin',
+    value: '*'
+  },
+  {
+    key: 'Access-Control-Allow-Methods',
+    value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT'
+  },
+  {
+    key: 'Access-Control-Allow-Headers',
+    value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   }
 ];
 
@@ -87,6 +107,10 @@ const nextConfig = {
       {
         source: '/admin/:path*',
         headers: adminHeaders,
+      },
+      {
+        source: '/api/:path*',
+        headers: apiHeaders,
       }
     ];
   },
